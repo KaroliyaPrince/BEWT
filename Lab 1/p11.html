@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let row = parseInt(prompt("enter row"))
+
+        let pattern_arr = [row][row]
+
+        for( i=0 ; i<row ;i++){
+            for( j=0 ;j<=i;j++){
+                if(j==0 || j==i){
+                    pattern_arr[i][j] = 1;
+                }
+                else{
+                    pattern_arr[i][j] = pattern_arr[i-1][j-1] + pattern_arr[i-1][j];
+                }
+            }
+        }
+
+        for( i= 0 ; i<row ;i++){
+            for( k=0 ; k<row-i ;k++){
+                document.write("&nbsp");
+            }
+
+            for( j = 0 ; j<=i;j++){
+                document.write(pattern_arr[i][j]+" ");
+            }
+
+            document.writeln();
+        }
+    </script>
+</body>
+</html>

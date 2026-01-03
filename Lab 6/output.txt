@@ -1,0 +1,1 @@
+successfully write in output.txthello, Append successfully

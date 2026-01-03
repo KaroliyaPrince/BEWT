@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let min = parseInt(prompt("Enter min number"))
+        let max = parseInt(prompt("Enter max number"))
+
+        for(i=min;i<=max;i++){
+            flag = true
+            for(j=2;j<i;j++){
+                if(i%j==0){
+                    flag = false
+                    break
+                }
+            }
+
+            if(flag) document.writeln(i+",")
+        }
+    </script>
+</body>
+</html>
