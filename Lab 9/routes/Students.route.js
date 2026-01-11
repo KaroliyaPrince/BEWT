@@ -1,10 +1,11 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const students = require('../models/Students')
-
+const connection_string = process.env.connection_string
 const studentRoute = express.Router()
 
-const m1 =  mongoose.connect('mongodb+srv://PrinceKaroliya:Prince123@cluster0.0fz9bm5.mongodb.net/Students').then(()=>{
+mongoose.connect(connection_string+'Students').then(()=>{
 
     studentRoute.get('/',async (req,res)=>{
         const data = await students.find()

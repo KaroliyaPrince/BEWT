@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const Product = require('../models/Product')
+require("dotenv").config()
+const connection_string = process.env.connection_string
 
 const ProductRoutes = express.Router()
 
-mongoose.connect("mongodb+srv://PrinceKaroliya:Prince123@cluster0.0fz9bm5.mongodb.net/Product").then(()=>{
+mongoose.connect(connection_string+"Product").then(()=>{
 
     ProductRoutes.get('/',async (req,res)=>{
         const data = await Product.find()
