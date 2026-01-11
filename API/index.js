@@ -1,10 +1,11 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const Students = require('./models/Students')
-
+const connection_string = process.env.connection_string
 const app = express()
 
-mongoose.connect("mongodb+srv://PrinceKaroliya:Prince123@cluster0.0fz9bm5.mongodb.net/Students")
+mongoose.connect(connection_string+"Students")
     .then(() => {
 
         app.use(express.json())
