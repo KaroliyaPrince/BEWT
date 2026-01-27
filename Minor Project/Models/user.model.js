@@ -25,4 +25,9 @@ async function updateUser(id,newData){
     return data
 }
 
-module.exports = {getAll,getById,insert,deleteUser,updateUser}
+async function getUserByName(userName) {
+    const [data] = await pool.query(`Select * from users where userName='${userName}'`)
+    return data
+}
+
+module.exports = {getAll,getById,insert,deleteUser,updateUser,getUserByName}

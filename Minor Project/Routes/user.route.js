@@ -1,5 +1,6 @@
 const express = require('express')
 const { getAllUser, getUserbyID, addUser, deleteUserById, updateUserByID } = require('../Services/user.service')
+const { checkLogin } = require('../Services/movie.service')
 
 const userRoute = express.Router()
 
@@ -25,6 +26,11 @@ userRoute.put('/:id',async (req,res)=>{
 
 userRoute.delete('/:id',async (req,res)=>{
     const data = await deleteUserById(req.params.id)
+    res.send(data)
+})
+
+userRoute.post('/login',async (req,res)=>{
+    const data = await checkLogin(req.body)
     res.send(data)
 })
 
