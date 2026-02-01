@@ -8,6 +8,9 @@ function checkToken(req, res, next) {
     else {
         try {
             const decode = jwt.verify(req.headers.token,process.env.KEY)
+
+            console.log(decode);
+            
             next()
         }
         catch (err) {
